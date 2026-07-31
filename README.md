@@ -103,8 +103,8 @@ Group Cross-Validation              │
 ## How to Run
 
 ```bash
-git clone https://github.com/mohammedbaqir01/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/mohammedbaqir01/Lithology-Classification-from-Well-Logs-using-XGBoost-Model.git
+cd Lithology-Classification-from-Well-Logs-using-XGBoost-Model
 pip install -r requirements.txt
 ```
 
