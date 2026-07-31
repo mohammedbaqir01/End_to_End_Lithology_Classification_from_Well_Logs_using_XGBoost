@@ -1,5 +1,12 @@
 # Lithology Classification from Well Logs using XGBoost
 
+## Project Overview
+
+This petroleum engineering project applies supervised machine learning to classify **lithology** from **well log** data using the **XGBoost** algorithm. The model predicts three lithology classes — **Sandstone, Shale, and Limestone** — from petrophysical well log measurements, supporting faster and more consistent geological interpretation.
+
+Lithology interpretation can be subjective and time-consuming. This project aims to **assist** engineers by providing fast, consistent lithology predictions, helping reduce interpretation variability rather than replacing expert judgment.
+
+
 ## Project Structure
 
 ```text
@@ -28,12 +35,6 @@
 └── requirements.txt                   # Required Python packages
 ```
 
-## Project Overview
-
-This petroleum engineering project applies supervised machine learning to classify **lithology** from **well log** data using the **XGBoost** algorithm. The model predicts three lithology classes — **Sandstone, Shale, and Limestone** — from petrophysical well log measurements, supporting faster and more consistent geological interpretation.
-
-Lithology interpretation can be subjective and time-consuming. This project aims to **assist** engineers by providing fast, consistent lithology predictions, helping reduce interpretation variability rather than replacing expert judgment.
-
 ## Well Log Data
 
 The dataset is based on the **FORCE 2020** well-log dataset. The core petrophysical logs used include:
@@ -55,13 +56,13 @@ The dataset is based on the **FORCE 2020** well-log dataset. The core petrophysi
 
 The macro F1-score is reported alongside accuracy because the classes are imbalanced (Limestone dominates the dataset). Macro F1 weighs all three classes equally, which better reflects performance on the minority class — the model's weakest recall (0.75) occurs on the smallest class.
 
-**Confusion Matrix**
+**confusion_matrix**
 
-![Confusion Matrix](images/confusion_matrix.png)
+![confusion_matrix](images/confusion_matrix.png)
 
-**Feature Importance**
+**feature_importance**
 
-![Feature Importance](Users\baqee\Documents\GitHub\Well Logging\images>)
+![feature_importance](images/feature_importance.png)
 
 ## Workflow
 
