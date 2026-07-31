@@ -54,9 +54,14 @@ The dataset is based on the **FORCE 2020** well-log dataset. The core petrophysi
 | Accuracy | 0.93 |
 | Macro F1-Score | 0.86 |
 
-The macro F1-score is reported alongside accuracy because the classes are imbalanced (Limestone dominates the dataset). Macro F1 weighs all three classes equally, which better reflects performance on the minority class — the model's weakest recall (0.75) occurs on the smallest class.
 
 **confusion_matrix**
+
+| Class ID | Lithology |
+|:--------:|-----------|
+| 0 | Limestone |
+| 1 | Sandstone |
+| 2 | Shale |
 
 ![confusion_matrix](images/confusion_matrix.png)
 
