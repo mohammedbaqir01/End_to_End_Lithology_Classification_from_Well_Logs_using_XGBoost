@@ -1,64 +1,123 @@
+# Lithology Classification from Well Logs using XGBoost
 
-# Project Overview
+## Project Structure
+
+```text
+├── data/
+│   ├── raw/
+│   │   └── README.md                  # Information about the original dataset
+│   └── processed/
+│       └── .gitkeep                   # Keeps the folder in Git
+│
+├── images/
+│   ├── ConfusionMatrix.png
+│   └── feature_importance.png
+│
+├── models/
+│   ├── classification_model.pkl
+│   └── label_encoder.pkl
+│
+├── notebooks/
+│   └── Lithology_Classification_from_Well_Logs_using_XGBoost.ipynb
+│
+├── reports/
+│   ├── classification_report.txt
+│   └── cross_validation_results.txt
+│
+├── README.md                          # Project documentation
+└── requirements.txt                   # Required Python packages
+```
 
 ## Project Overview
-This project uses supervised machine learning to classify **lithology** from well log data using the **XGBoost** algorithm. The objective is to accurately predict lithology classes based on petrophysical well log measurements.
+
+This petroleum engineering project applies supervised machine learning to classify **lithology** from **well log** data using the **XGBoost** algorithm. The model predicts three lithology classes — **Sandstone, Shale, and Limestone** — from petrophysical well log measurements, supporting faster and more consistent geological interpretation.
+
+Lithology interpretation can be subjective and time-consuming. This project aims to **assist** engineers by providing fast, consistent lithology predictions, helping reduce interpretation variability rather than replacing expert judgment.
+
+## Well Log Data
+
+The dataset is based on the **FORCE 2020** well-log dataset. The core petrophysical logs used include:
+
+- **Gamma Ray (GR):** Measures natural radioactivity and helps distinguish shale from clean formations.
+- **Bulk Density (RHOB):** Estimates rock density and is useful for identifying lithology and porosity.
+- **Neutron Porosity (NPHI):** Estimates formation porosity based on hydrogen content.
+- **Photoelectric Factor (PEF):** Helps differentiate mineral compositions and lithology (used when available).
+- **Compressional Sonic (DTC):** Measures acoustic travel time and provides information about rock properties.
+- **Caliper (CALI)** and **Deep Resistivity (RDEP):** Used alongside the logs above as the required "core suite" — rows missing any of these are excluded.
+
 
 ## Results
-- **Accuracy:** 0.93
-- **F1-Score:** 0.86
+
+| Metric | Score |
+|--------|------:|
+| Accuracy | 0.93 |
+| Macro F1-Score | 0.86 |
+
+The macro F1-score is reported alongside accuracy because the classes are imbalanced (Limestone dominates the dataset). Macro F1 weighs all three classes equally, which better reflects performance on the minority class — the model's weakest recall (0.75) occurs on the smallest class.
+
+**Confusion Matrix**
+
+![Confusion Matrix](images/confusion_matrix.png)
+
+**Feature Importance**
+
+![Feature Importance](Users\baqee\Documents\GitHub\Well Logging\images>)
 
 ## Workflow
 
-### 1. the Problem 
-Lithology interpretation can be subjective and time-consuming. This project aims to assist engineers by providing fast and consistent lithology predictions using machine learning, helping reduce interpretation variability rather than replacing expert judgment.
+```text
+Well Log Data
+      │
+      ▼
+Quick Data Exploration
+      │
+      ▼
+Train/Test Split (by well)
+      │
+      ├─────────────────────────────┐
+      │                             │
+      ▼                             ▼
+Training Set                  Testing Set
+      │                             │
+      ▼                             │
+Data Cleaning                       │
+      │                             │
+      ▼                             │
+Feature Engineering                 │
+      │                             │
+      ▼                             │
+XGBoost Model Training              │
+      │                             │
+      ▼                             │
+Group Cross-Validation              │
+      │                             │
+      └──────────────┐              │
+                      ▼              ▼
+              Final Model Evaluation
+                      │
+                      ▼
+             Feature Importance
+```
 
----
+## How to Run
 
-### 2. Quick Look at the Data
-Perform an initial exploration of the dataset using basic pandas methods:
+```bash
+git clone https://github.com/mohammedbaqir01/<repo-name>.git
+cd <repo-name>
+pip install -r requirements.txt
+```
 
-- `info()`
-- `describe()`
+> **Note:** The notebook was developed in Google Colab and currently loads data by mounting Google Drive (`drive.mount(...)`) from a fixed Drive path. To run it locally, replace the Drive-mounting cell with a direct read from `data/raw/`, then run the notebook top to bottom in Jupyter or Colab.
 
----
+## 🛡️ License
+Project is distributed under MIT License
 
-### 3. Plot a Histogram for Each Feature
-Visualize the distribution of each feature to better understand the data and identify potential outliers.
+## Author
 
----
+**Mohammed Baqer Ahmed**
 
-### 4. Split the Data into Training and Testing Sets
-Split the dataset into training and testing sets. All preprocessing, feature engineering, and model development are performed **only on the training data** to prevent data leakage. The split is based on **well** and **depth** to ensure a realistic evaluation.
+Petroleum Engineering graduate with a focus on Machine Learning applications in the oil and gas industry.
 
----
-
-### 5. Visualize the Data in Depth
-Perform detailed exploratory data analysis (EDA) to identify patterns, correlations, missing values, and outliers.
-
----
-
-### 6. Feature Engineering
-Create and transform features that better represent the underlying geological information and improve model performance.
-
----
-
-### 7. Data Cleaning & Preprocessing
-- Remove features with more than **70% missing values**.
-- Clean missing values from the core logging features.
-- Prepare the dataset for model training.
-
----
-
-### 8. Build the Model
-Train an **XGBoost** classifier for lithology prediction. XGBoost was selected because it provides excellent performance on structured tabular data, handles complex feature interactions, and is robust against overfitting.
-
----
-
-### 9. Cross-Validation and Evaluation
-Evaluate the model's stability and generalization performance using cross-validation. The cross-validation results are available in the corresponding output file.
-
----
-
-### 10. Final Test on the Test Set
-Evaluate the final model on the previously unseen test dataset. The final evaluation results are available in the corresponding output file.
+- 📧 **Email:** <mohammedbaqir010@gmail.com>
+- 💼 **LinkedIn:** https://www.linkedin.com/in/mohammed-baqer-ahmed-079098280
+- 🐙 **GitHub:** https://github.com/mohammedbaqir01
