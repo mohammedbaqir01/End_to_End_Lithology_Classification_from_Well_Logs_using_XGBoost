@@ -1,19 +1,5 @@
 # Lithology Classification from Well Logs using XGBoost
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org)
 
-[![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org)
-
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)](https://scikit-learn.org)
-
-[![XGBoost](https://img.shields.io/badge/XGBoost-006400?style=for-the-badge)](https://xgboost.readthedocs.io)
-
-[![Well Logging](https://img.shields.io/badge/Well%20Logging-00599C?style=for-the-badge)](https://github.com/topics/well-logging)
-
-[![Petrophysics](https://img.shields.io/badge/Petrophysics-8A2BE2?style=for-the-badge)](https://github.com/topics/petrophysics)
-
-[![Petroleum Engineering](https://img.shields.io/badge/Petroleum%20Engineering-B22222?style=for-the-badge)](https://github.com/topics/petroleum-engineering)
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 ## Project Overview
 
 This petroleum engineering project applies supervised machine learning to classify **lithology** from **well log** data using the **XGBoost** algorithm. The model predicts three lithology classes — **Sandstone, Shale, and Limestone** — from petrophysical well log measurements, supporting faster and more consistent geological interpretation.
