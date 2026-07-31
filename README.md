@@ -1,4 +1,12 @@
 # Lithology Classification from Well Logs using XGBoost
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white)
+![XGBoost](https://img.shields.io/badge/XGBoost-Classification-green)
+![Well Logging](https://img.shields.io/badge/Well%20Logging-blue)
+![Petrophysics](https://img.shields.io/badge/Petrophysics-purple)
+![Petroleum Engineering](https://img.shields.io/badge/Petroleum%20Engineering-red)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ## Project Overview
 
