@@ -10,29 +10,38 @@ Lithology interpretation can be subjective and time-consuming. This project aims
 ## Project Structure
 
 ```text
-├── data/
+├── data/                     # Raw and processed well log datasets
 │   ├── raw/
-│   │   └── README.md                  # Information about the original dataset
+│   │   └── README.md
 │   └── processed/
-│       └── .gitkeep                   # Keeps the folder in Git
+│       └── .gitkeep
 │
-├── images/
+├── images/                   # Figures and visualizations used in the README
 │   ├── ConfusionMatrix.png
-│   └── feature_importance.png
+│   └── Feature importance.png
 │
-├── models/
-│   ├── classification_model.pkl
+├── models/                   # Trained machine learning models
+│   ├── ClassificationModel.pkl
 │   └── label_encoder.pkl
 │
-├── notebooks/
+├── notebooks/                # Jupyter notebooks for EDA, model development, and experiments
 │   └── Lithology_Classification_from_Well_Logs_using_XGBoost.ipynb
 │
-├── reports/
+├── reports/                  # Model evaluation results
 │   ├── classification_report.txt
 │   └── cross_validation_results.txt
 │
-├── README.md                          # Project documentation
-└── requirements.txt                   # Required Python packages
+├── src/                      # Source code for the machine learning pipeline
+│   ├── data_loader.py
+│   ├── preprocessing.py
+│   ├── train.py
+│   ├── evaluate.py
+│   ├── predict.py
+│   ├── visualization.py
+│   └── .gitkeep
+│
+├── README.md                 # Project documentation
+└── requirements.txt          # Python dependencies
 ```
 
 ## Well Log Data
