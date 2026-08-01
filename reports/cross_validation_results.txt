@@ -1,0 +1,5 @@
+4-fold group cross-validation F1 scores for classification model:
+- fold 1: 0.80324844
+- fold 2: 0.83729829
+- fold 3: 0.8244788
+- fold 4: 0.86290135
