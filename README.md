@@ -46,14 +46,7 @@ Lithology interpretation can be subjective and time-consuming. This project aims
 
 ## Well Log Data
 
-The dataset is based on the **FORCE 2020** well-log dataset. The core petrophysical logs used include:
-
-- **Gamma Ray (GR):** Measures natural radioactivity and helps distinguish shale from clean formations.
-- **Bulk Density (RHOB):** Estimates rock density and is useful for identifying lithology and porosity.
-- **Neutron Porosity (NPHI):** Estimates formation porosity based on hydrogen content.
-- **Photoelectric Factor (PEF):** Helps differentiate mineral compositions and lithology (used when available).
-- **Compressional Sonic (DTC):** Measures acoustic travel time and provides information about rock properties.
-- **Caliper (CALI)** and **Deep Resistivity (RDEP):** Used alongside the logs above as the required "core suite" — rows missing any of these are excluded.
+The dataset is based on the **FORCE 2020** well-log dataset.
 
 
 ## Results
