@@ -32,13 +32,8 @@ Lithology interpretation can be subjective and time-consuming. This project aims
 │   └── cross_validation_results.txt
 │
 ├── src/                      # Source code for the machine learning pipeline
-│   ├── data_loader.py
-│   ├── preprocessing.py
-│   ├── train.py
-│   ├── evaluate.py
-│   ├── predict.py
-│   ├── visualization.py
-│   └── .gitkeep
+│   ├── .gitkeep
+│   
 │
 ├── README.md                 # Project documentation
 └── requirements.txt          # Python dependencies
