@@ -115,7 +115,7 @@ cd Lithology-Classification-from-Well-Logs-using-XGBoost-Model
 pip install -r requirements.txt
 ```
 
-> **Note:** The notebook was developed in Google Colab and currently loads data by mounting Google Drive (`drive.mount(...)`) from a fixed Drive path. To run it locally, replace the Drive-mounting cell with a direct read from `data/raw/`, then run the notebook top to bottom in Jupyter or Colab.
+
 
 ## 🛡️ License
 Project is distributed under MIT License
