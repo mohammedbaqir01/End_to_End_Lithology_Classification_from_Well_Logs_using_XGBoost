@@ -16,7 +16,7 @@ Lithology interpretation can be subjective and time-consuming. This project aims
 │   └── processed/
 │       └── .gitkeep
 │
-├── assets\figures/                   # Figures and visualizations used in the README
+├── figures/                   # Figures and visualizations used in the README
 │   ├── ConfusionMatrix.png
 │   └── Feature importance.png
 │
@@ -65,11 +65,11 @@ The dataset is based on the **FORCE 2020** well-log dataset.
 | 1 | Sandstone |
 | 2 | Shale |
 
-![confusion_matrix](assets\figures/confusion_matrix.png)
+![confusion_matrix](figures/confusion_matrix.png)
 
 **feature_importance**
 
-![feature_importance](assets\figures/feature_importance.png)
+![feature_importance](figures/feature_importance.png)
 
 ## Workflow
 
