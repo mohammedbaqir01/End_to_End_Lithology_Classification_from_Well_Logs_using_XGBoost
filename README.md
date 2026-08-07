@@ -16,7 +16,7 @@ Lithology interpretation can be subjective and time-consuming. This project aims
 │   └── processed/
 │       └── .gitkeep
 │
-├── images/                   # Figures and visualizations used in the README
+├── assets\figures/                   # Figures and visualizations used in the README
 │   ├── ConfusionMatrix.png
 │   └── Feature importance.png
 │
@@ -32,8 +32,13 @@ Lithology interpretation can be subjective and time-consuming. This project aims
 │   └── cross_validation_results.txt
 │
 ├── src/                      # Source code for the machine learning pipeline
-│   ├── .gitkeep
-│   
+│   ├── data/                 # Loading, cleaning, and dataset splitting
+│   ├── features/             # Feature engineering
+│   ├── modeling/             # Model training and cross-validation
+│   ├── evaluation/           # Evaluation metrics and reports
+│   ├── utils/                # Artifact and utility helpers
+│   └── run_pipeline.py       # End-to-end pipeline entry point
+
 │
 ├── README.md                 # Project documentation
 └── requirements.txt          # Python dependencies
@@ -60,11 +65,11 @@ The dataset is based on the **FORCE 2020** well-log dataset.
 | 1 | Sandstone |
 | 2 | Shale |
 
-![confusion_matrix](images/confusion_matrix.png)
+![confusion_matrix](assets\figures/confusion_matrix.png)
 
 **feature_importance**
 
-![feature_importance](images/feature_importance.png)
+![feature_importance](assets\figures/feature_importance.png)
 
 ## Workflow
 
@@ -108,6 +113,7 @@ Group Cross-Validation              │
 git clone https://github.com/mohammedbaqir01/Lithology-Classification-from-Well-Logs-using-XGBoost-Model.git
 cd Lithology-Classification-from-Well-Logs-using-XGBoost-Model
 pip install -r requirements.txt
+python -m src.run_pipeline
 ```
 
 
