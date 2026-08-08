@@ -31,22 +31,19 @@ DATA_PATH = "data/csv_data_training"
 
 df = load_data(DATA_PATH)
 
-# Split data into training and test sets. This should preserve well-level grouping
-# to prevent data leakage between train and test.
+# Split data into training and test sets to prevent data leakage between train and test.
 train_df, test_df = split_dataset(df)
 
 # Apply preprocessing to training and test sets (cleaning, encoding, scaling).
 train_df, test_df = preprocess_data(train_df, test_df)
 
 
-# Build features for train and test. Use the training reference to keep transforms
-# consistent (e.g., statistics computed on training only).
+# Build features for train and test. 
 train_df = build_features(train_df, train_reference_df=train_df)
 test_df = build_features(test_df, train_reference_df=train_df)
 
 
-# Prepare feature matrix X and label vector Y for training. Drop non-feature
-# identifier columns and the target column from X.
+# Prepare feature matrix X and label vector Y for training.
 X_train = train_df.drop(
     columns=[
         "Lithology",
