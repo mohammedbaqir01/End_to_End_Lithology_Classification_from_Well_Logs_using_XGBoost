@@ -1,5 +1,9 @@
 
 *.csv
+!src/tests/sample_data/
+!src/tests/sample_data/*.csv
+
+
 *.xlsx
 *.parquet
 
