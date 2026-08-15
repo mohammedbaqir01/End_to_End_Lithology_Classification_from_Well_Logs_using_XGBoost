@@ -189,7 +189,7 @@ A deployed machine learning service that predicts rock lithology from well log m
 ### Sample Requests
 
 <details>
-<summary>🟡 Sandstone — well 26/4-1</summary>
+<summary>🟡 well 26/4-1</summary>
 
 ```json
 {
@@ -218,7 +218,7 @@ A deployed machine learning service that predicts rock lithology from well log m
 </details>
 
 <details>
-<summary>🟤 Shale — well 34/5-1 A</summary>
+<summary>🟤 well 34/5-1 A</summary>
 
 ```json
 {
@@ -247,7 +247,7 @@ A deployed machine learning service that predicts rock lithology from well log m
 </details>
 
 <details>
-<summary>⚪ Limestone — well 25/10-9 Aegis</summary>
+<summary>⚪ well 25/10-9 Aegis</summary>
 
 ```json
 {
@@ -274,6 +274,9 @@ A deployed machine learning service that predicts rock lithology from well log m
 ```
 
 </details>
+
+> note: FORCE_2020_LITHOFACIES_CONFIDENCE" and
+  "FORCE_2020_LITHOFACIES_LITHOLOGY" will be deleted from the model
 
 
 
