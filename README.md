@@ -147,11 +147,20 @@ python -m src.main
 
 > Run these commands from the project root directory, not from inside `src/`.
 
-## API
+## Deployment
 
-The API provides an interface for making lithology predictions using the trained XGBoost model.
+The FastAPI application is containerized with Docker and deployed on Microsoft Azure.
 
-FastAPI automatically provides interactive API documentation when the application is running.
+**Cloud Platform:** Microsoft Azure  
+**API Framework:** FastAPI  
+**Containerization:** Docker
+
+### Live API
+
+The API is publicly deployed and accessible through Azure:
+
+[Swagger UI](http://lithologyapi.uaenorth.azurecontainer.io:8000/docs)
+
 
 ## License
 
