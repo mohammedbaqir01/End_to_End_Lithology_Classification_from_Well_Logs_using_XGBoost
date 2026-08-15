@@ -129,7 +129,7 @@ Because the project uses imports such as `src.features...`, run it from the **pr
 python -m src.run_pipeline
 ```
 
-### Run the API
+### Run the API locally
 
 The FastAPI application is defined in `src/main.py`.
 
@@ -147,19 +147,130 @@ python -m src.main
 
 > Run these commands from the project root directory, not from inside `src/`.
 
-## Deployment
+## 🛰️ Live API
 
-The FastAPI application is containerized with Docker and deployed on Microsoft Azure.
+A deployed machine learning service that predicts rock lithology from well log measurements, hosted live on Azure.
 
-**Cloud Platform:** Microsoft Azure  
-**API Framework:** FastAPI  
-**Containerization:** Docker
+### Access
 
-### Live API
+| | |
+|---|---|
+| **Swagger UI** | [lithologyapi.uaenorth.azurecontainer.io:8000/docs](http://lithologyapi.uaenorth.azurecontainer.io:8000/docs) |
+| **Base URL** | `http://lithologyapi.uaenorth.azurecontainer.io:8000` |
+| **Region** | Azure Container Instances — UAE North |
 
-The API is publicly deployed and accessible through Azure:
+---
 
-[Swagger UI](http://lithologyapi.uaenorth.azurecontainer.io:8000/docs)
+### Tech Stack
+
+- **Model:** XGBoost (trained on FORCE 2020 lithology dataset)
+- **Backend:** FastAPI
+- **Containerization:** Docker
+- **Hosting:** Azure Container Instances
+
+---
+
+### How to Test
+
+1. Open the Swagger UI: http://lithologyapi.uaenorth.azurecontainer.io:8000/docs
+2. Expand the prediction endpoint and select **Try it out**
+3. Paste in one of the sample payloads below (each represents a different lithology)
+4. Execute the request and review the predicted class against the expected label
+
+> [!TIP]
+> Each sample below is a real well-log record pulled from the FORCE 2020 test set, labeled with its true lithology so you can sanity-check the model's prediction.
+
+---
+
+### Sample Requests
+
+<details>
+<summary>🟡 Sandstone — well 26/4-1</summary>
+
+```json
+{
+  "source_file": "Force_2020_all_wells_train_test_blind_hidden_final/26_4-1.las",
+  "well_name": "26/4-1",
+  "DEPT": 2810.7122,
+  "FORCE_2020_LITHOFACIES_CONFIDENCE": 1.0,
+  "FORCE_2020_LITHOFACIES_LITHOLOGY": 30000,
+  "CALI": 8.27344,
+  "RDEP": 0.89230,
+  "RMED": 1.16342,
+  "DTC": 88.09482,
+  "NPHI": 0.23286,
+  "PEF": 4.00485,
+  "GR": 53.16555,
+  "RHOB": 2.33559,
+  "DRHO": -0.00697,
+  "DEPTH_MD": 2810.7122,
+  "X_LOC": 501132.3125,
+  "Y_LOC": 6608172.0,
+  "Z_LOC": -2787.4451,
+  "BS": 8.5
+}
+```
+
+</details>
+
+<details>
+<summary>🟤 Shale — well 34/5-1 A</summary>
+
+```json
+{
+  "source_file": "Force_2020_all_wells_train_test_blind_hidden_final/34_5-1 A.las",
+  "well_name": "34/5-1 A",
+  "DEPT": 2560.5060,
+  "FORCE_2020_LITHOFACIES_CONFIDENCE": 1.0,
+  "FORCE_2020_LITHOFACIES_LITHOLOGY": 65000,
+  "CALI": 12.12654,
+  "RDEP": 1.38839,
+  "RMED": 1.48019,
+  "DTC": 111.31543,
+  "NPHI": 0.35000,
+  "PEF": 4.39317,
+  "GR": 84.42467,
+  "RHOB": 2.33314,
+  "DRHO": 0.00255,
+  "DEPTH_MD": 2560.5061,
+  "X_LOC": 478842.875,
+  "Y_LOC": 6845677.5,
+  "Z_LOC": -2506.0632,
+  "BS": 12.250001
+}
+```
+
+</details>
+
+<details>
+<summary>⚪ Limestone — well 25/10-9 Aegis</summary>
+
+```json
+{
+  "source_file": "Force_2020_all_wells_train_test_blind_hidden_final/25_10-9.las",
+  "well_name": "25/10-9 Aegis",
+  "DEPT": 2408.1848,
+  "FORCE_2020_LITHOFACIES_CONFIDENCE": 1.0,
+  "FORCE_2020_LITHOFACIES_LITHOLOGY": 70000,
+  "CALI": 12.02373,
+  "RDEP": 3.25196,
+  "RMED": 2.64917,
+  "DTC": 74.95468,
+  "NPHI": 0.14116,
+  "PEF": 4.93655,
+  "GR": 38.41137,
+  "RHOB": 2.50727,
+  "DRHO": 0.00162,
+  "DEPTH_MD": 2408.1848,
+  "X_LOC": 452404.3125,
+  "Y_LOC": 6552707.0,
+  "Z_LOC": -2382.6289,
+  "BS": 12.250001
+}
+```
+
+</details>
+
 
 
 ## License
