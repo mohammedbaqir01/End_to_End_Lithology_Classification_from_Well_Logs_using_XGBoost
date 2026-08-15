@@ -82,7 +82,7 @@ Well Log Data
 Quick Data Exploration
       │
       ▼
-Train/Test Split (by well)
+Train/Test Split (GroupKFold by well)
       │
       ├─────────────────────────────┐
       │                             │
@@ -90,13 +90,10 @@ Train/Test Split (by well)
 Training Set                  Testing Set
       │                             │
       ▼                             │
-Data Cleaning                       │
+Feature Engineering                 |
       │                             │
       ▼                             │
-Feature Engineering                 │
-      │                             │
-      ▼                             │
-XGBoost Model Training              │
+XGBoost Model Training              │                    
       │                             │
       ▼                             │
 Group Cross-Validation              │
@@ -107,6 +104,13 @@ Group Cross-Validation              │
                      │
                      ▼
               Feature Importance
+                     │
+                     ▼
+        Model Serialization (.pkl)
+                     │
+                     ▼
+       API Deployment (FastAPI + Docker
+        → Azure Container Instances)
 ```
 
 ## How to Run
