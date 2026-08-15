@@ -6,48 +6,51 @@ This petroleum engineering project applies supervised machine learning to classi
 
 Lithology interpretation can be subjective and time-consuming. This project aims to **assist** engineers by providing fast, consistent lithology predictions, helping reduce interpretation variability rather than replacing expert judgment.
 
-
 ## Project Structure
 
 ```text
-├── data/                     # Raw and processed well log datasets
+├── data/                         # Raw and processed well log datasets
 │   ├── raw/
 │   │   └── README.md
 │   └── processed/
 │       └── .gitkeep
 │
-├── figures/                   # Figures and visualizations used in the README
-│   ├── ConfusionMatrix.png
-│   └── Feature importance.png
+├── figures/                      # Figures and visualizations used in the README
+│   ├── confusion_matrix.png
+│   └── feature_importance.png
 │
-├── models/                   # Trained machine learning models
+├── models/                       # Trained machine learning artifacts
 │   ├── ClassificationModel.pkl
 │   └── label_encoder.pkl
 │
-├── notebooks/                # Jupyter notebooks for EDA, model development, and experiments
+├── notebooks/                    # Jupyter notebooks for EDA, development, and experiments
 │   └── Lithology_Classification_from_Well_Logs_using_XGBoost.ipynb
 │
-├── reports/                  # Model evaluation results
+├── reports/                      # Model evaluation results
 │   ├── classification_report.txt
 │   └── cross_validation_results.txt
 │
-├── src/                      # Source code for the machine learning pipeline
-│   ├── data/                 # Loading, cleaning, and dataset splitting
-│   ├── features/             # Feature engineering
-│   ├── modeling/             # Model training and cross-validation
-│   ├── evaluation/           # Evaluation metrics and reports
-│   ├── utils/                # Artifact and utility helpers
-│   └── run_pipeline.py       # End-to-end pipeline entry point
-
+├── src/                          # Main source-code package
+│   ├── data/                     # Data loading, cleaning, and splitting
+│   ├── evaluation/               # Model evaluation and reporting
+│   ├── features/                 # Feature engineering
+│   ├── modeling/                 # Model training and cross-validation
+│   ├── serving/                  # API serving code
+│   ├── tests/                    # Project tests
+│   ├── utils/                    # Utility functions
+│   ├── main.py                   # FastAPI application
+│   └── run_pipeline.py           # End-to-end ML pipeline entry point
 │
-├── README.md                 # Project documentation
-└── requirements.txt          # Python dependencies
+├── .gitignore
+├── Dockerfile
+├── LICENSE
+├── README.md
+└── requirements.txt
 ```
 
 ## Well Log Data
 
 The dataset is based on the **FORCE 2020** well-log dataset.
-
 
 ## Results
 
@@ -56,8 +59,7 @@ The dataset is based on the **FORCE 2020** well-log dataset.
 | Accuracy | 0.93 |
 | Macro F1-Score | 0.86 |
 
-
-**confusion_matrix**
+### Confusion Matrix
 
 | Class ID | Lithology |
 |:--------:|-----------|
@@ -67,11 +69,11 @@ The dataset is based on the **FORCE 2020** well-log dataset.
 
 ![confusion_matrix](figures/confusion_matrix.png)
 
-**feature_importance**
+### Feature Importance
 
 ![feature_importance](figures/feature_importance.png)
 
-## Workflow
+## Machine Learning Workflow
 
 ```text
 Well Log Data
@@ -100,26 +102,60 @@ XGBoost Model Training              │
 Group Cross-Validation              │
       │                             │
       └──────────────┐              │
-                      ▼              ▼
-              Final Model Evaluation
-                      │
-                      ▼
-             Feature Importance
+                     ▼              ▼
+             Final Model Evaluation
+                     │
+                     ▼
+              Feature Importance
 ```
 
 ## How to Run
 
-``` bash
+Clone the repository and install the dependencies:
+
+```bash
 git clone https://github.com/mohammedbaqir01/Lithology-Classification-from-Well-Logs-using-XGBoost-Model.git
 cd Lithology-Classification-from-Well-Logs-using-XGBoost-Model
 pip install -r requirements.txt
+```
+
+### Run the ML Pipeline
+
+The pipeline entry point is located inside `src/`.
+
+Because the project uses imports such as `src.features...`, run it from the **project root** as a module:
+
+```bash
 python -m src.run_pipeline
 ```
 
+### Run the API
 
+The FastAPI application is defined in `src/main.py`.
 
-## 🛡️ License
-Project is distributed under MIT License
+Run it with Uvicorn:
+
+```bash
+python -m uvicorn src.main:app --reload
+```
+
+You can also run the module directly:
+
+```bash
+python -m src.main
+```
+
+> Run these commands from the project root directory, not from inside `src/`.
+
+## API
+
+The API provides an interface for making lithology predictions using the trained XGBoost model.
+
+FastAPI automatically provides interactive API documentation when the application is running.
+
+## License
+
+Project is distributed under the MIT License.
 
 ## Author
 
