@@ -1,4 +1,4 @@
-# Lithology Classification from Well Logs using XGBoost
+# End-to-End Lithology Classification from Well Logs using XGBoost
 
 ## Project Overview
 
