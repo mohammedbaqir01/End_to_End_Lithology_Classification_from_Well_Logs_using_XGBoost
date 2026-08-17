@@ -118,8 +118,8 @@ Group Cross-Validation              │
 Clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/mohammedbaqir01/Lithology-Classification-from-Well-Logs-using-XGBoost-Model.git
-cd Lithology-Classification-from-Well-Logs-using-XGBoost-Model
+git clone https://github.com/mohammedbaqir01/End_to_End_Lithology_Classification_from_Well_Logs_using_XGBoost.git
+cd End_to_End_Lithology_Classification_from_Well_Logs_using_XGBoost
 pip install -r requirements.txt
 ```
 
