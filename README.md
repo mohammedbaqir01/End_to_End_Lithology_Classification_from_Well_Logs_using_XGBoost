@@ -275,7 +275,7 @@ A deployed machine learning service that predicts rock lithology from well log m
 
 </details>
 
-> note: FORCE_2020_LITHOFACIES_CONFIDENCE" and
+> Note: FORCE_2020_LITHOFACIES_CONFIDENCE" and
   "FORCE_2020_LITHOFACIES_LITHOLOGY" will be deleted from the model
 
 
